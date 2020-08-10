@@ -1,1 +1,11 @@
-[{"Name":"Launch Google.com","TimeStamp":571.99970000000008},{"Name":"Search for ttcglobal","TimeStamp":12143.4658},{"Name":"Open ttcglobal.com","TimeStamp":16711.929300000002},{"Name":"Click Menu","TimeStamp":20104.0548},{"Name":"Static Wait Cos Lazy","TimeStamp":21286.941600000002},{"Name":"Click Who We Are","TimeStamp":22297.152400000003},{"Name":"Click Americas","TimeStamp":27354.920700000002},{"Name":"Static Wait Cos Lazy","TimeStamp":28674.4751},{"Name":"Verify Scott Does Not Exist","TimeStamp":29678.4588}]
+[
+  {"Name":"Launch Google.com","TimeStamp":571.99970000000008, "EndTime":12143.4658},
+  {"Name":"Search for ttcglobal","TimeStamp":12143.4658, "EndTime":16711.929300000002},
+  {"Name":"Open ttcglobal.com","TimeStamp":16711.929300000002,"EndTime":20104.0548},
+  {"Name":"Click Menu","TimeStamp":20104.0548,"EndTime":21286.941600000002},
+  {"Name":"Static Wait Cos Lazy","TimeStamp":21286.941600000002,"EndTime":22297.152400000003},
+  {"Name":"Click Who We Are","TimeStamp":22297.152400000003,"EndTime":27354.920700000002},
+  {"Name":"Click Americas","TimeStamp":27354.920700000002,"EndTime":28674.4751},
+  {"Name":"Static Wait Cos Lazy","TimeStamp":28674.4751,"EndTime":29678.4588},
+  {"Name":"Verify Scott Does Not Exist","TimeStamp":29678.4588,"EndTime":31000.0127}
+]
