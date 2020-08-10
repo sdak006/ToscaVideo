@@ -54,7 +54,7 @@ class App extends Component {
                       }
                     }
                     style={{
-                      backgroundColor: this.state.playedSeconds >= startTime && this.state.playedSeconds <= endTime ? 'red':'#282c34',
+                      backgroundColor: this.state.playedSeconds >= startTime && this.state.playedSeconds < endTime ? 'red':'#282c34',
                       margin: '5px'
                     }}>
                     {d.Name}
