@@ -5,7 +5,7 @@ import ResultItem from './ResultItem.js';
 const ResultItemList = props => {
   const { listItems, isItemSelected, onItemClick } = props;
   return (
-    <ul className={'Result-item-list'}>
+    <ul className={'result-item-list'}>
       {
         listItems.map(item => {
           const startTime = Math.floor(parseFloat(item.StartTime));

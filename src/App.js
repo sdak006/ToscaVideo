@@ -14,6 +14,7 @@ class App extends Component {
       playedSeconds: 0
     };
   }
+
   componentDidMount() {
     fetch('https://d2vmuhnaso62pi.cloudfront.net/19f9123c-9a9f-4f3c-9e62-c9cd7644d9bb/results.json')
       .then(response => response.json())
@@ -26,7 +27,6 @@ class App extends Component {
 
   handleProgress = state => {
     console.log('onProgress', state)
-    // We only want to update time slider if we are not currently seeking
     if (!this.state.seeking) {
       this.setState(state)
     }
@@ -50,7 +50,7 @@ class App extends Component {
           <ResultList
             listItems={this.state.data}
             isItemSelected={(startTime, endTime) => playedSeconds >= startTime && playedSeconds < endTime}
-            onItemClick={(time)=>this.player.seekTo(time, 'seconds')}
+            onItemClick={(time) => this.player.seekTo(time, 'seconds')}
           />
           <ReactPlayer
             ref={this.ref}

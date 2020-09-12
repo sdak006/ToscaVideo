@@ -1,20 +1,43 @@
-.Result-item {
+.result-item {
   background-color: grey;
   list-style-type: none;
   margin: 5px;
   padding: 10px;
   box-sizing: border-box;
-  height: 50px;
+  font-size: medium;
 }
 
-.Selected {
+.selected {
   background-color: brown;
 }
 
-.Result-item-list {
-  border-style: solid;
-  border-color: black;
+.result-item-list {
   padding-left: 0px;
-  max-height: 700px;
+  max-height: 600px;
   overflow: auto;
+}
+
+:first-child { margin-top: 0 !important; }
+
+:last-child { margin-bottom: 0 !important; }
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(97, 180, 169, 0.623); 
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+background: rgba(255,0,0,0.4); 
 }
