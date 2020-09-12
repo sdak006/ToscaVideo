@@ -1,15 +1,24 @@
 import React, { Component } from 'react'
 import './App.css';
 import ReactPlayer from 'react-player'
-import Data from './data.json'
+import ResultList from './Components/Results/ResultList.js';
+
 
 class App extends Component {
+  constructor(props) {
+    super(props);
 
-  state = {
-    duration: 0,
-    playedSeconds: 0
+    this.state = {
+      data: [],
+      duration: 0,
+      playedSeconds: 0
+    };
   }
-
+  componentDidMount() {
+    fetch('https://d2vmuhnaso62pi.cloudfront.net/19f9123c-9a9f-4f3c-9e62-c9cd7644d9bb/results.json')
+      .then(response => response.json())
+      .then(data => this.setState({ data }));
+  }
 
   ref = player => {
     this.player = player
@@ -29,6 +38,7 @@ class App extends Component {
   }
 
   render() {
+    const { playedSeconds } = this.state
     const config = {
       xhrSetup: function (xhr, url) {
         xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
@@ -36,33 +46,12 @@ class App extends Component {
     };
     return (
       <div className="App">
-        <header className="App-header">
-          <div>
-            {
-              Data.map(
-                (d, index) =>
-                {
-                  var startTime=Math.floor(parseFloat(d.TimeStamp / 1000));
-                  var endTime=Math.floor(parseFloat(d.EndTime / 1000));
-                  return(
-                  <div
-                    key={index}
-                    onClick={
-                      () => {
-                        console.log(startTime);
-                        this.player.seekTo(startTime, 'seconds')
-                      }
-                    }
-                    style={{
-                      backgroundColor: this.state.playedSeconds >= startTime && this.state.playedSeconds < endTime ? 'red':'#282c34',
-                      margin: '5px'
-                    }}>
-                    {d.Name}
-                  </div>
-                  )
-                })
-            }
-          </div>
+        <div className="App-header">
+          <ResultList
+            listItems={this.state.data}
+            isItemSelected={(startTime, endTime) => playedSeconds >= startTime && playedSeconds < endTime}
+            onItemClick={(time)=>this.player.seekTo(time, 'seconds')}
+          />
           <ReactPlayer
             ref={this.ref}
             height='600px'
@@ -75,9 +64,9 @@ class App extends Component {
             }}
             onProgress={this.handleProgress}
             onDuration={this.handleDuration}
-            url='https://toscavideo-output.s3-us-west-1.amazonaws.com/2cb5c76c-a76e-4aa8-8367-1bef9ef47b36.m3u8'
+            url='https://d2vmuhnaso62pi.cloudfront.net/e1b77d04-54c8-4f2f-ae8e-758e88e27dfa/hls/e1b77d04-54c8-4f2f-ae8e-758e88e27dfa.m3u8'
           />
-        </header>
+        </div>
       </div>
     );
   }

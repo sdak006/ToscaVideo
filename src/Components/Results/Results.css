@@ -1,0 +1,20 @@
+.Result-item {
+  background-color: grey;
+  list-style-type: none;
+  margin: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  height: 50px;
+}
+
+.Selected {
+  background-color: brown;
+}
+
+.Result-item-list {
+  border-style: solid;
+  border-color: black;
+  padding-left: 0px;
+  max-height: 700px;
+  overflow: auto;
+}
