@@ -7,14 +7,15 @@ const ResultItemList = props => {
   return (
     <ul className={'result-item-list'}>
       {
-        listItems.map(item => {
+        listItems.map((item, index) => {
           const startTime = Math.floor(parseFloat(item.StartTime));
           const endTime = Math.floor(parseFloat(item.EndTime));
           return (
             <ResultItem
-              text={item.Name}
+              key={index}
               selected={isItemSelected(startTime, endTime)}
-              onClick={() => onItemClick(startTime)}
+              text={item.Name}
+              onClick={()=>onItemClick(startTime)}
             />
           )
         })
